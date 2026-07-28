@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { LayoutWrapper } from "@/components/layout/LayoutWrapper";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aquasmart-ai.vercel.app";
 const socialTitle = "AquaSmart AI | ذكاء اصطناعي لإدارة المزارع السمكية";
@@ -70,6 +71,7 @@ export default function RootLayout({
       <body className="font-cairo" suppressHydrationWarning>
         <LayoutWrapper>{children}</LayoutWrapper>
         <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GA_ID || ""} />
+        <Analytics />
         <script
           dangerouslySetInnerHTML={{
             __html: `
